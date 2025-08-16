@@ -1,0 +1,11 @@
+beautifulsoup4
+bs4
+Flask
+Flask-Cors
+Flask-Limiter
+waitress
+lxml
+requests
+selenium
+webdriver-manager
+urllib3

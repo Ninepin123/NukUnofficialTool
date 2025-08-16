@@ -1,0 +1,67 @@
+/* style.css  */
+:root {
+    --primary-color: #4a90e2; --primary-hover: #357ABD; --text-color: #333740;
+    --subtle-text-color: #777; --background-color: #f4f7f9; --container-bg: #ffffff;
+    --border-color: #e0e6ed; --highlight-bg: #fffbe5; --success-color: #28a745;
+    --success-hover: #218838; --danger-color: #dc3545; --danger-hover: #c82333;
+    --cancel-color: #64748b; --cancel-hover: #475569; --shadow-color: rgba(0, 0, 0, 0.08);
+    --header-bg-color: #eaf2fc;
+}
+body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--background-color); color: var(--text-color); margin: 0; padding: 24px; line-height: 1.6; }
+.container { max-width: 1600px; margin: 0 auto; }
+header { text-align: center; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; }
+header h1 { color: var(--primary-color); font-weight: 700; }
+.main-content { display: flex; gap: 32px; flex-wrap: wrap; }
+.course-selection { flex: 1; min-width: 450px; }
+.search-bar { display: grid; grid-template-columns: 1fr auto; gap: 12px; margin-bottom: 10px; align-items: center; }
+#searchInput, #deptFilter { padding: 10px 12px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--container-bg); font-size: 1rem; }
+#searchInput:focus, #deptFilter:focus { outline: none; border-color: var(--primary-color); }
+.course-count-container { text-align: right; margin: -8px 0 12px 0; font-size: 0.9em; color: var(--subtle-text-color); }
+.course-list-container { height: 70vh; overflow-y: auto; border: 1px solid var(--border-color); padding: 12px; background: var(--container-bg); border-radius: 8px; }
+.course-item { border: 1px solid var(--border-color); padding: 16px; margin-bottom: 12px; border-radius: 8px; background-color: var(--container-bg); position: relative; box-shadow: 0 2px 4px var(--shadow-color); }
+.course-item.highlight { background-color: var(--highlight-bg); }
+.course-title { margin: 0 0 8px 0; font-size: 1.1em; color: var(--primary-color); cursor: pointer; display: inline-block; font-weight: 500; }
+.course-title:hover { text-decoration: underline; color: var(--primary-hover); }
+.course-item p { margin: 4px 0; font-size: 0.9em; color: var(--subtle-text-color); }
+.course-item p strong { color: var(--text-color); }
+.add-btn-container { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); }
+.add-btn { padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9em; text-align: center; background-color: var(--success-color); color: white; font-weight: 500; }
+.add-btn:hover { background-color: var(--success-hover); }
+.add-btn.added { background-color: var(--cancel-color); color: white; }
+.add-btn.added:hover { background-color: var(--cancel-hover); }
+.timetable-section { flex: 2; min-width: 600px; }
+.timetable-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.timetable-header h2 { margin: 0; }
+#totalCredits { font-size: 1.1em; font-weight: 500; color: var(--primary-color); margin-right: auto; padding-left: 20px; }
+.header-btn { padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; background-color: var(--primary-color); color: white; margin-left: 10px; display: inline-flex; align-items: center; gap: 8px; }
+.header-btn:hover { background-color: var(--primary-hover); }
+.header-btn.danger { background-color: var(--danger-color); }
+.header-btn.danger:hover { background-color: var(--danger-hover); }
+.header-btn .icon { width: 16px; height: 16px; }
+#timetable { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--container-bg); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px var(--shadow-color); table-layout: fixed; }
+#timetable th, #timetable td { border: none; border-bottom: 1px solid var(--border-color); border-left: 1px solid var(--border-color); text-align: center; padding: 4px; height: 45px; font-size: 0.8em; vertical-align: top; overflow: hidden; text-overflow: ellipsis; background-color: var(--container-bg); }
+#timetable th { background-color: var(--header-bg-color); font-weight: 500; vertical-align: middle; }
+#timetable td:first-child, #timetable th:first-child { border-left: none; width: 50px; }
+#timetable tr:last-child td { border-bottom: none; }
+#timetable .break-period td { height: 25px; background-color: #f8f9fa; font-size: 0.7em; }
+.time-slot { font-weight: bold; font-size: 0.9em; }
+.course-cell { font-size: 0.8em; padding: 4px; line-height: 1.3; overflow: hidden; position: relative; color: #333; text-align: left; }
+.course-cell-content { cursor: pointer; }
+.remove-btn { display: none; position: absolute; top: 2px; right: 2px; cursor: pointer; color: #c00; font-weight: bold; }
+.remove-btn.show { display: block; }
+.course-cell.hover-highlight { background-color: var(--highlight-bg) !important; }
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); }
+.modal-content { background-color: var(--container-bg); margin: 10% auto; padding: 24px 32px; border: 1px solid var(--border-color); width: 80%; max-width: 600px; border-radius: 12px; position: relative; box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+.close-btn { color: #aaa; position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; }
+.modal-title-container { display: flex; align-items: center; gap: 10px; }
+.modal-title-container h2 { margin-top: 0; margin-bottom: 0; }
+.detail-link { display: inline-flex; align-items: center; color: var(--primary-color); opacity: 0.6; }
+.detail-link:hover { opacity: 1; color: var(--primary-hover); }
+.detail-link .icon { width: 22px; height: 22px; }
+#modalBody table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+#modalBody td { padding: 10px; border: 1px solid var(--border-color); }
+#modalBody td:first-child { font-weight: 500; background-color: #f9f9fa; width: 120px; }
+.registration-code-cell { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+#registrationCode { font-weight: bold; font-family: monospace; font-size: 1.1em; color: var(--primary-color); }
+#copyCodeBtn { padding: 4px 10px; font-size: 0.8em; border: 1px solid var(--border-color); background-color: #f0f0f0; color: var(--text-color); border-radius: 5px; cursor: pointer; }
+#copyCodeBtn:hover { background-color: #e0e0e0; }

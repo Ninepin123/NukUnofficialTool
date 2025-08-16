@@ -1,0 +1,31 @@
+# Bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging / installer files
+build/
+dist/
+*.egg-info/
+*.spec
+
+# Virtual Environments
+venv/
+env/
+.venv/
+*.venv
+
+# Data files - 避免上傳使用者產生的成績或快取的課程資料
+data/score.json
+data/courses_final.json
+
+# Instance folder (for Flask sensitive configurations)
+instance/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log

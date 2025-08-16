@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高雄大學學分分析與排課系統</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/course.css">
+    <link rel="stylesheet" href="css/credit.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>高雄大學學分分析與排課系統</h1>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-section="credit">學分分析</button>
+                <button class="nav-btn" data-section="course">排課系統</button>
+            </nav>
+        </header>
+
+        <!-- 學分分析區域 -->
+        <section id="credit-section" class="section active">
+            <div class="section-content">
+                <h2>成績查詢與學分分析</h2>
+                <p>點擊下方按鈕，將會開啟瀏覽器讓您登入教務系統。</p>
+                <button id="startCreditAnalysis" class="primary-btn">開始學分分析</button>
+                <div id="creditStatus" class="status"></div>
+                <div id="creditResults" class="results-container"></div>
+            </div>
+        </section>
+
+        <!-- 排課系統區域 -->
+        <section id="course-section" class="section">
+            <div class="main-content">
+                <div class="course-selection">
+                    <h2>課程列表</h2>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="搜尋課程名稱、老師、課號...">
+                        <select id="deptFilter">
+                            <option value="">所有系所</option>
+                        </select>
+                    </div>
+                    <div class="course-count-container">
+                        <span id="courseCount"></span>
+                    </div>
+                    <div id="courseList" class="course-list-container">
+                        <p class="loading">正在載入課程資料，請稍候...</p>
+                    </div>
+                </div>
+
+                <div class="timetable-section">
+                    <div class="timetable-header">
+                        <h2>我的課表</h2>
+                        <span id="totalCredits">總學分數：0</span>
+                        <div>
+                            <button id="exportTimetableBtn" class="header-btn">匯出課表</button>
+                            <button id="clearTimetableBtn" class="header-btn danger">清空課表</button>
+                        </div>
+                    </div>
+                    <table id="timetable">
+                        <thead>
+                            <tr>
+                                <th>節次</th>
+                                <th>一</th>
+                                <th>二</th>
+                                <th>三</th>
+                                <th>四</th>
+                                <th>五</th>
+                                <th>六</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 課程詳情彈窗 -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/credit.js"></script>
+    <script src="js/course.js"></script>
+</body>
+</html>
